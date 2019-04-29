@@ -1,13 +1,29 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
-const client = new Discord.Client()
+const client = new Discord.Client();
+
+ 
 
 client.on('ready', () => {
 
-  console.log("Connected as " + client.user.tag)
+    console.log('I am ready!');
 
-})
+});
 
-bot_secret_token = "NTcyMTkxMzQyNDI4NTUzMjI3.XMYwHA.hZTplWokZlEZuGuYdX00cOlrQ_w"
+ 
 
-client.login('NTcyMTkxMzQyNDI4NTUzMjI3.XMYwHA.hZTplWokZlEZuGuYdX00cOlrQ_w')
+client.on('message', message => {
+
+    if (message.content === 'ping') {
+
+       message.reply('pong');
+
+       }
+
+});
+
+ 
+
+// THIS  MUST  BE  THIS  WAY
+
+client.login(process.env.BOT_TOKEN);
